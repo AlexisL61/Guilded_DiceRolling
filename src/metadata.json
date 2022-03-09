@@ -1,0 +1,12 @@
+{
+    "id": "dicerolling",
+    "name": "dicerolling",
+    "files": "index.js",
+    "version": "1.0.0",
+    "requiredPermissions": 3,
+    "description":"Rolling to victory !",
+
+    "images": ["https://img.guildedcdn.com/ContentMedia/df4e599ae8420b032c2dee6f9b6f5367-Full.webp?w=513&h=205"],
+    "banner": "https://img.guildedcdn.com/ContentMedia/df4e599ae8420b032c2dee6f9b6f5367-Full.webp?w=513&h=205",
+    "author": "mq17v55m"
+}
