@@ -50,7 +50,7 @@ const embedModal = {
     }
 };
 
-async function onEmbedClick({ editor, overlayProvider }) {
+async function onRollClick({ editor, overlayProvider }) {
     const { confirmed, changedValues, isValid, hasChanged } = await overlayProvider.SimpleFormOverlay.Open(embedModal);
     // You can still get around it by setting colour
     if (confirmed && isValid && hasChanged) {
@@ -98,7 +98,7 @@ module.exports = {
                 bodyText: "Role some dices!",
                 icon: "icon-description",
                 sectionType: "rows",
-                onAction: onEmbedClick
+                onAction: onRollClick
             }
         ]
     },
@@ -107,6 +107,16 @@ module.exports = {
     load() {
         const embedPlugin = editorUtil.getPluginByType("webhookMessage");
         
+        embedPlugin.toolbarInfo = {
+            iconGroup: "dices",
+            iconName: "icon-description",
+            tooltip: "Roll dices",
+            onClick: onRollClick,
+            menu: {
+                size: "lg",
+                menuSpecs: { id: "dicerolling", sections: [this.insertPluginAction] }
+            }
+        };
         this.insertedIndex = editorUtil.addInsertPlugin(embedPlugin);
         // Add it to whatever chat it has opened
         editorUtil.addSlateSection(this.insertPluginAction);
